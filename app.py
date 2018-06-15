@@ -25,11 +25,11 @@ class Root(object):
                                                 db=redisconfig.db,
                                                 decode_responses=redisconfig
                                                 .decode_responses_value)
-                    self.r = redis.Redis(connection_pool=pool)
+                    r = redis.Redis(connection_pool=pool)
                 else:
-                    self.r = redis.from_url(redistogo_url,
-                                            decode_responses=redisconfig
-                                            .decode_responses_value)
+                    r = redis.from_url(redistogo_url,
+                                       decode_responses=redisconfig
+                                       .decode_responses_value)
             except:
                 print("Error Connecting to Redis")
                 raise cherrypy.HTTPError(status=500)
