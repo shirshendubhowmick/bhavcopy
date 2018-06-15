@@ -3,3 +3,4 @@ csvExtract/*
 !csvExtract/.gitkeep
 zipFiles/*
 !zipFiles/.gitkeep
+/__pycache__
