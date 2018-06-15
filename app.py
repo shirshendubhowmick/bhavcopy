@@ -75,5 +75,5 @@ if __name__ == '__main__':
     }
     port_number = os.environ.get("PORT")
     if(port_number):
-        cherrypy.config.update({'server.socket_port': port_number})
+        cherrypy.config.update({'server.socket_port': int(port_number)})
     cherrypy.quickstart(Root(), '/', config)
