@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900');
+@import url('https://fonts.googleapis.com/css?family=Song+Myung');
+
+* {
+    box-sizing: border-box;
+    font-family: "roboto";
+}
+
+body {
+    margin: 0;
+}
+
+.navbar {
+    background: rgb(0, 1, 20);
+}
+
+.navbar div {
+    display: inline-block;
+}
+
+.navbar-brand {
+    color: white;
+    font-size: 1.5rem;
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.navbar-search_box {
+    position: absolute;
+    right: 1rem;
+    top: 0.72rem;
+}
+
+.navbar-search_box input {
+    border: 1px solid #ccc;
+    height: 1.5rem;
+    width: 10rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 5px;
+    font: inherit;
+}
+
+.navbar-search_box input:focus {
+    outline: none;
+    background: rgb(186, 253, 186);
+    border-color: rgb(0, 104, 0);
+}
+
+.navbar-search_box button {
+    background: transparent;
+    color: #17a2b8;
+    font: inherit;
+    border: 1.5px solid #17a2b8;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    width: 5rem;
+    cursor: pointer;
+}
+
+.navbar-search_box button:hover,
+.navbar-search_box button:active {
+    background: #138496;
+    border-color: #117a8b;
+    color: white;
+}
+
+.navbar-search_box button:focus {
+    outline: none;
+}
+
+.background-image {
+    background: url(/static/images/background.jpg);
+    height: 30vh;
+    background-size: cover;
+    /* position: absolute; */
+}
+
+.background-image div {
+    color: rgb(40, 65, 0);
+    font-size: 1.5rem;
+    font-family: "Song Myung";
+    width: 75%;
+    text-align: center;
+    margin: auto;
+    position: relative;
+    top: calc((30vh - 3.75rem ) / 2);
+    max-width: 23.67rem;
+    min-width: 18.25rem;
+}
+
+.reset-button {
+    margin-top: 0.5rem;
+    margin-right: 1rem;
+    text-align: right;
+}
+
+.reset-button button {
+    background: transparent;
+    color: #dc3545;
+    font: inherit;
+    border: 0.09rem solid #dc3545;
+    border-radius: 0.5rem;
+    padding: 0.1rem;
+    font-weight: bold;
+    font-size: 0.8rem;
+    cursor: pointer;
+    /* display: none; */
+}
+
+.reset-button button:hover,
+.reset-button button:active {
+    background: #bd2130;
+    border-color: #b21f2d;
+    color: white;
+}
+
+.reset-button button:focus {
+    outline: none;
+}
+
+.error-text {
+    text-align: center;
+    display: none;
+}
+
+.error-text p {
+    font-weight: bold;
+}
+
+.table-div {
+    text-align: center;
+}
+
+.table-div table {
+    width: 90%;
+    margin: 0.5rem auto 1rem auto;
+    border-spacing: 0;
+    font-size: 0.6rem;
+}
+
+.table-div table th {
+    background: #2c2c2c;
+    padding: 0.1rem;
+    color: white;
+    border-bottom: 1px solid #ddd;
+}
+
+.table-div table td {
+    padding: 0.1rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.table-div table tr:hover {
+    background-color: #c7c7c7;
+}
+
+.table-div table tr td.green-text {
+    color: green;
+}
+
+.table-div table tr td.red-text {
+    color: red;
+}
+
+.table-div table tr td.black-text {
+    color: black;
+}
+
+footer {
+    display: block;
+    background: black;
+    text-align: center;
+    height: 3rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer div {
+    color: white;
+    /* text-align: center; */
+    display: inline-block;
+}
+
+footer div span {
+    color: red;
+}
+
+    
+@media (min-width: 40rem) {
+
+    .navbar-search_box input {
+        height: 2.38rem;
+    }
+
+    .navbar-search_box button {
+        width: auto;
+        font-weight: bold;
+    }
+
+    .background-image {
+        height: 45vh;
+        background-position: 10%;
+    }
+
+    .background-image div {
+        font-size: 2rem;
+        width: 55%;
+        top: calc(30vh - 7.5rem);
+        max-width: 31.44rem;
+    }
+
+    .reset-button {
+        margin-top: 2.5rem;
+        margin-right: 1rem;
+        text-align: right;
+    }
+
+    .reset-button button {
+        padding: 0.5rem;
+        font-size: 1rem;
+    }
+
+    .table-div table{
+        width: 60%;
+        font-size: 1rem;
+        margin-top: 2.5rem;
+        margin-bottom: 6rem;
+    }
+    .table-div table th {
+        padding: 0.7rem;
+    }
+    
+    .table-div table td {
+        padding: 0.5rem;
+        font-weight: bold;
+    }
+
+}
+
+@media (min-width: 60rem) {
+    .background-image div {
+        font-size: 3rem;
+        width: 55%;
+        top: calc(30vh - 7.5rem);
+        max-width: 45.19rem;
+    }
+
+}
