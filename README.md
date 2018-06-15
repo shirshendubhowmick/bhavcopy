@@ -23,3 +23,5 @@ By default, the web app displays top 10 stocks entry from Redis, one can also se
 
 
 The web app is also mobile device friendly.
+
+The web app is also hosted on Heroku and available under this [link](https://bsebhavcopy.herokuapp.com/)
