@@ -18,12 +18,18 @@ class Root(object):
         if (cherrypy.request.method == "GET"):
             cherrypy.response.headers['Content-Type'] = "text/json"
             try:
-                pool = redis.ConnectionPool(host=redisconfig.host,
-                                            port=redisconfig.port,
-                                            db=redisconfig.db,
+                redistogo_url = os.environ.get("REDISTOGO_URL")
+                if (not redistogo_url):
+                    pool = redis.ConnectionPool(host=redisconfig.host,
+                                                port=redisconfig.port,
+                                                db=redisconfig.db,
+                                                decode_responses=redisconfig
+                                                .decode_responses_value)
+                    self.r = redis.Redis(connection_pool=pool)
+                else:
+                    self.r = redis.from_url(redistogo_url,
                                             decode_responses=redisconfig
                                             .decode_responses_value)
-                r = redis.Redis(connection_pool=pool)
             except:
                 print("Error Connecting to Redis")
                 raise cherrypy.HTTPError(status=500)
@@ -67,4 +73,7 @@ if __name__ == '__main__':
             'tools.staticdir.dir': './public'
         }
     }
+    port_number = os.environ.get("PORT")
+    if(port_number):
+        cherrypy.config.update({'server.socket_port': port_number})
     cherrypy.quickstart(Root(), '/', config)

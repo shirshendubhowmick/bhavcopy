@@ -4,6 +4,7 @@ import zipfile
 import csv
 import redis
 import redisconfig
+import os
 
 
 class ExtractBhavCopy:
@@ -64,12 +65,18 @@ class LoadBhavCopy:
 
     def __init__(self):
         try:
-            pool = redis.ConnectionPool(host=redisconfig.host,
-                                        port=redisconfig.port,
-                                        db=redisconfig.db,
+            redistogo_url = os.environ.get("REDISTOGO_URL")
+            if (not redistogo_url):
+                pool = redis.ConnectionPool(host=redisconfig.host,
+                                            port=redisconfig.port,
+                                            db=redisconfig.db,
+                                            decode_responses=redisconfig
+                                            .decode_responses_value)
+                self.r = redis.Redis(connection_pool=pool)
+            else:
+                self.r = redis.from_url(redistogo_url,
                                         decode_responses=redisconfig
                                         .decode_responses_value)
-            self.r = redis.Redis(connection_pool=pool)
         except:
             print("Error Connecting to Redis")
         self.loadData()
